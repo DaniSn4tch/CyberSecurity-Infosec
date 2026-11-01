@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CyberSecurity Infosec</title>
+  <link rel="stylesheet" href="mystyles.css">
+</head>
+<body>
+	<canvas id="matrix"></canvas>
+	<div class="term-window" role="region" aria-label="Kali style terminal mock">
+	<!-- Top navigation bar -->
+	<nav class="menu-bar">
+		<ul>
+			<li><a href="index.html">Αρχική</a></li>
+			<li><a href="history.html">Ιστορία</a></li>
+			<li><a href="multimedia.html" class="selected">Πολυμέσα</a></li>
+			<li><a href="news.html">Νέα</a></li>
+			<li><a href="aboutme.html">Σχετικά Με Εμένα</a></li>
+		</ul>
+	</nav>
+	
+	<!-- Top bar -->
+    <div class="chrome">
+      <div class="dots" aria-hidden="true">
+        <div class="dot close"></div>
+        <div class="dot min"></div>
+        <div class="dot max"></div>
+      </div>
+      <div class="title">root@Πολυμέσα: ~ — Terminal</div>
+      <div style="width:36px"></div> <!-- κανει center το "root@kali: ~ — Terminal" -->
+    </div>
+	
+	<div class="term-body">
+		<nav id="leftsidebar">
+			<p class="prompt">root@Πολυμέσα:</p>
+			<img src="../media/full/kali3.png" alt="sidebarlogo">
+		</nav>
+
+		
+	<main class="terminal">
+    <p style="text-align:center;">
+        <a href="../media/full/egw.jpg" target="_blank" rel="noopener noreferrer">
+            <img src="../media/full/egw.jpg" alt="Profile photo">
+        </a>
+    </p>
+
+    <span class="prompt">root@about_me:~</span>
+    <span style="color:gray;" class="blinkingunder"># whoami</span>
+    <p>
+        > Danihl Safariadis
+        > Digital Systems Student
+    </p>
+
+    <span class="prompt">root@about_me:~</span>
+    <span style="color:gray;" class="blinkingunder"># cat /etc/profile</span>
+    <p>
+        > Location: Larissa, Greece
+        > Education: University of Thessaly
+        > Interests: Cybersecurity, Web Development & Linux
+        > Focus: Ethical Hacking, Network Security & Digital Forensics
+    </p>
+
+    <span class="prompt">root@about_me:~</span>
+    <span style="color:gray;" class="blinkingunder"># history | tail -5</span>
+    <p>
+        > My interest in computers started at an early age, but it was only recently that I got the opportunity to explore the field more deeply.
+        > I gradually developed a preference for Linux after breaking Windows one too many times.
+        > I had a great time building this website and experimenting with web development.
+        > Currently, I'm exploring cybersecurity, while also considering pursuing web development as another area of interest.
+    </p>
+    <span class="prompt">root@about_me:~</span>
+    <span style="color:gray;" class="blinkingunder"># echo "philosophy"</span>
+    <p>> "The worst thing in this world is wasted potential."</p>
+    <span class="prompt">root@about_me:~</span>
+    <span style="color:gray;" class="blinkingunder"># cat /etc/contacts</span>
+    	<p>> Email: <a href="mailto:dsafariadis@uth.gr" style="color:var(--accent2);text-decoration:none;">dsafariadis@uth.gr</a></p>
+    	<span class="prompt">root@about_me:~</span>
+		<span style="color:gray;" class="blinkingunder"># logout</span>
+	</main>
+	
+	</div>
+	
+	<footer id="footer">
+      <div id="leftfooter">&copy; Πανεπιστήμιο Θεσσαλίας</div>
+      <div id="rightfooter">design: Danihl Safariadis</div>
+    </footer>
+	</div>
+	<script>
+		const canvas = document.getElementById("matrix");
+		const ctx = canvas.getContext("2d");
+
+		
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+
+		
+		const chars = "01";
+		const fontSize = 16;
+		const columns = canvas.width / fontSize;
+
+		
+		const drops = Array(Math.floor(columns)).fill(1);
+
+		function draw() {
+		ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; 
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	
+		ctx.fillStyle = "#0F0";
+		ctx.font = fontSize + "px monospace";
+
+		drops.forEach((y, i) => {
+			const text = chars.charAt(Math.floor(Math.random() * chars.length));
+			const x = i * fontSize;
+			ctx.fillText(text, x, y * fontSize);
+
+			if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+			drops[i]++;
+		});
+	}
+
+		setInterval(draw, 33);
+
+		window.addEventListener("resize", () => {
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+	});
+	</script>
+
+</body>
+</html>

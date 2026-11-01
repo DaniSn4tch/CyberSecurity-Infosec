@@ -1,0 +1,423 @@
+:root{
+  --bg:#0b0f12;
+  --panel:#0f1417;
+  --text:#cdd6d6;
+  --muted:#94a3b8;
+  --accent:#6ee7b7;
+  --accent2:#60a5fa;
+  --shadow: 0 8px 30px rgba(2,6,23,0.7);
+  --font: 'Roboto', sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{
+	height: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+body{
+  margin:0;
+  background:linear-gradient(180deg,#071014 0%, #071014 40%, #08131a 100%);
+  font-family:var(--font);
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  justify-content:center;
+  padding:0;
+  color:var(--text);
+}
+
+
+/* --- FONTS -------------------------------------------*/  
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+
+/* --- MENU BAR -------------------------------------------*/  
+.menu-bar{
+	background-color:white;
+}
+
+.menu-bar ul {
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-bar li a {
+    color: black;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+	display: inline-block;
+}
+
+.menu-bar li{
+	margin: 0;
+	cursor: pointer;
+	display: flex; 
+}
+
+
+.menu-bar li a:hover {
+	background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 4px;
+}
+
+.menu-bar li a.selected {
+	color: #0077cc;
+}
+
+.menu-bar li a::after {
+    content: '>';
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-bar li a::before {
+    content: '<';
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-bar li a:hover::after,
+.menu-bar li a:hover::before {
+  opacity: 1;
+}
+
+
+/* --- TERMINAL -------------------------------------------*/  
+
+.term-window{
+	width: fit-content;
+	min-width:900px;
+	max-width: 79vw;
+	height: min(90vh, 900px);
+	max-height: 95vh;
+	background:linear-gradient(180deg,var(--panel), #0b1114);
+	box-shadow:var(--shadow);
+	display: flex;
+	overflow:hidden;
+	flex-direction: column;
+	border:1px solid rgba(255,255,255,0.02);
+
+}
+
+.term-body {
+	display: flex;
+	height:100%;
+	align-items: flex-start;   
+	padding: 20px;
+	gap: 12px;              
+	flex: 1;                  
+	overflow-y: auto;     
+	overflow-x: hidden;
+	min-width: 0;
+}
+
+.terminal{
+	flex: 1 1 auto; 
+	min-width: 0; 
+	padding:0 20px;
+	min-height:380px;
+	margin: 0 ;
+	font-size:14px;
+	line-height:1.55;
+	tab-size:2;
+	color:var(--text);
+	white-space:pre-line; 
+	word-break: break-word;
+	overflow-y: auto;
+}
+
+.prompt{
+	color:var(--accent2);
+}
+
+
+.cmd{flex:1;white-space:pre-wrap;word-break:break-word;color:var(--text)}
+
+
+/* --- DOTS AND TOP BAR -------------------------------------------*/  
+.dots{
+	display:flex;
+	gap:8px
+}
+
+.dot{
+	width:12px;
+	height:12px;
+	border-radius:50%
+}
+
+.dot.close{
+	background:#ff5f56
+}
+
+.dot.min{
+	background:#ffbd2e
+}
+
+.dot.max{
+	background:#27c93f
+}
+
+.chrome{
+  height:34px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:6px 12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-bottom:1px solid rgba(255,255,255,0.01);
+}
+
+
+.title{
+	flex:1;
+	text-align:center;
+	font-size:13px;
+	color:var(--muted);
+	font-weight:600
+}
+
+
+/* --- FOOTER --------------------------------------------*/    
+    #footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #231;
+		font-size: 12px;
+		padding: 10px 20px;
+		margin: 0;
+		color:white;
+    }
+
+#leftfooter , #rightfooter{
+	width:auto;
+	}
+	
+article{
+	margin: 0 0 6px 0;
+	padding: 0;
+}
+/* --- MATRIX RAIN --------------------------------------------*/    
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;           
+  background: black;   
+}
+
+/* --- ANIMATIONS --------------------------------------------*/    
+h3::before {
+  content: "# ";
+  color: var(--accent2);
+  animation: blink 1.2s steps(1, start) infinite;
+}
+
+.blinking::before{
+	content: "# ";
+	color: var(--accent2);
+	animation: blink 1.2s steps(1, start) infinite;
+}
+
+.blinking::after{
+	content: " #";
+	color: var(--accent2);
+	animation: blink 1.2s steps(1, start) infinite;
+}
+.blinkingunder::after{
+	content: " _";
+	color: gray;
+	animation: blink 1.2s steps(1, start) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes fadingshadow {
+  50% {box-shadow: 0px 0px 30px var(--accent2);}
+}
+
+
+/* --- SIDEBAR -------------------------------------------*/    
+#leftsidebar,#rightsidebar {
+	flex: 0 0 140px;  
+	height:100%;
+	width:100%;
+	min-width: 140px;
+	padding: 0;
+	margin: 0;
+	position:sticky;
+	top:0;
+	align-self: flex-start;
+}
+
+#leftsidebar{
+	border-right: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+#rightsidebar{
+	border-left: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ol li a:hover{
+	font-weight: bolder;
+	color: blue;
+	
+}
+
+nav ol li a{
+	text-decoration: none; 
+	color: skyblue;
+}
+
+
+/* --- GALLERY-------------------------------------------*/   
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 400px;
+  height: 350px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--accent2);
+}
+
+/* --- VIDEO AND ANIMATION -------------------------------------------*/   
+.video {
+	display: block;
+	position: relative;
+	width: 600px;
+	max-width: 100%;
+	position: relative;
+	margin: 30px auto;
+	overflow: hidden;
+	border-radius: 10px;
+	animation: fadingshadow 1s infinite;
+}
+
+
+
+.video img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.video:hover{
+  transform: scale(1.05);
+}
+
+/* --- TABLES -------------------------------------------*/   
+
+table,th,td{
+	border: 1px solid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-family: var(--font);
+}
+
+th {
+  color: var(--accent);
+  font-weight: bold;
+  background: rgba(255,255,255,0.05);
+}
+
+td {
+  color: var(--text);
+}
+
+/* --- ARTICLE -------------------------------------------*/  
+
+article {
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.02);
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+article:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 0 8px rgba(96,165,250,0.2);
+}
+
+article h3 {
+  color: var(--accent2);
+  margin-top: 0;
+}
+
+article p em {
+  color: var(--muted);
+}
+
+/* --- EXTRA -------------------------------------------*/  
+.topgap{
+	padding-top:20px;
+}
+
+main  p {
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.02);
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+main  p:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 0 8px rgba(96,165,250,0.2);
+}
+
+main  p h3 {
+  color: var(--accent2);
+  margin-top: 0;
+}
+
+main p em {
+  color: var(--muted);
+}

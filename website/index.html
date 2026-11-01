@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CyberSecurity Infosec</title>
+  <link rel="stylesheet" href="mystyles.css">
+</head>
+<body>
+	<canvas id="matrix"></canvas>
+	<div class="term-window" role="region" aria-label="Kali style terminal mock">
+	<nav class="menu-bar">
+		<ul>
+			<li><a href="index.html" class="selected">Αρχική</a></li>
+			<li><a href="history.html">Ιστορία</a></li>
+			<li><a href="multimedia.html">Πολυμέσα</a></li>
+			<li><a href="news.html">Νέα</a></li>
+			<li><a href="aboutme.html">Σχετικά Με Εμένα</a></li>
+		</ul>
+	</nav>
+	
+	<!-- Top bar -->
+    <div class="chrome">
+		<div class="dots" aria-hidden="true">
+			<div class="dot close"></div>
+			<div class="dot min"></div>
+			<div class="dot max"></div>
+		</div>
+		<div class="title">root@Αρχική: ~ — Terminal</div>
+		<div style="width:36px"></div> <!-- κανει center το "root@kali: ~ — Terminal" -->
+    </div>
+	
+	<div class="term-body">
+		<nav id="leftsidebar">
+			<p class="prompt">root@Αρχική:</p>
+			<img src="../media/full/kali3.png" alt="sidebarlogo">
+		</nav>
+
+		<main class="terminal">
+					<p>Καλωσορίσατε στο CyberSecurity Infosec, μια διαδικτυακή πλατφόρμα αφιερωμένη στην ασφάλεια πληροφοριών, την προστασία δεδομένων και την ηθική χακαρίσματος.</p>
+					<p>Σκοπός αυτής της ιστοσελίδας είναι η ενημέρωση του χρήστη για νέες τεχνολογίες, τάσεις και πρακτικές γύρω από την ασφάλεια πληροφοριών και τον χώρο του κυβερνοχώρου.
+					Εδώ θα βρεις άρθρα, σημειώσεις και μικρούς οδηγούς που αφορούν θέματα όπως η προστασία δεδομένων, η ασφάλεια δικτύων, η ανίχνευση ευπαθειών, και η ηθική πλευρά του hacking.</p>
+					<p>Η πλατφόρμα αυτή δεν στοχεύει απλώς στη θεωρητική γνώση — επιδιώκει να καλλιεργήσει μια κουλτούρα <b class="prompt" style="font-weight:bold;">κυβερνοεπίγνωσης (cyber awareness)</b>, 
+					μέσα από απλές, πρακτικές πληροφορίες που μπορεί να αξιοποιήσει κάθε χρήστης στην καθημερινή του ζωή.</p>
+					<article><h3>Σταδιακά, θα προστεθεί περισσότερο υλικό:</h3>
+						<ul>		
+							<li>Νέα από τον χώρο της κυβερνοασφάλειας,</li>
+							<li>Εκπαιδευτικοί πόροι για φοιτητές και ενδιαφερόμενους,</li>
+							<li>Και προτάσεις εργαλείων για όσους θέλουν να εμβαθύνουν στον κόσμο του ethical hacking.</li>
+						</ul>
+					</article>
+					<p>Η ασφάλεια στο διαδίκτυο δεν είναι πολυτέλεια, είναι <b class="prompt">αναγκαιότητα</b>.
+					Καλώς ήρθες, λοιπόν, στον χώρο του <strong class="prompt">CyberSecurity Infosec</strong>, όπου η γνώση γίνεται η καλύτερη άμυνα.</p>
+		</main>
+	</div>
+	
+	<footer id="footer">
+      <div id="leftfooter">&copy; Πανεπιστήμιο Θεσσαλίας</div>
+      <div id="rightfooter">design: Danihl Safariadis</div>
+    </footer>
+	</div>
+	<script>
+		const canvas = document.getElementById("matrix");
+		const ctx = canvas.getContext("2d");
+
+		
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+
+		
+		const chars = "01";
+		const fontSize = 16;
+		const columns = canvas.width / fontSize;
+
+		
+		const drops = Array(Math.floor(columns)).fill(1);
+
+		function draw() {
+		ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; 
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	
+		ctx.fillStyle = "#0F0";
+		ctx.font = fontSize + "px monospace";
+
+		drops.forEach((y, i) => {
+			const text = chars.charAt(Math.floor(Math.random() * chars.length));
+			const x = i * fontSize;
+			ctx.fillText(text, x, y * fontSize);
+
+			if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+			drops[i]++;
+		});
+	}
+
+		setInterval(draw, 33);
+
+		window.addEventListener("resize", () => {
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+	});
+	</script>
+</body>
+</html>

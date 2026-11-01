@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CyberSecurity Infosec</title>
+  <link rel="stylesheet" href="mystyles.css">
+</head>
+<body>
+	<canvas id="matrix"></canvas>
+  <div class="term-window" role="region" aria-label="Kali style terminal mock">
+	<nav class="menu-bar">
+		<ul>
+			<li><a href="index.html">Αρχική</a></li>
+			<li><a href="history.html" class="selected">Ιστορία</a></li>
+			<li><a href="multimedia.html">Πολυμέσα</a></li>
+			<li><a href="news.html">Νέα</a></li>
+			<li><a href="aboutme.html">Σχετικά Με Εμένα</a></li>
+		</ul>
+	</nav>
+	
+	<!-- Top bar -->
+    <div class="chrome">
+      <div class="dots" aria-hidden="true">
+        <div class="dot close"></div>
+        <div class="dot min"></div>
+        <div class="dot max"></div>
+      </div>
+      <div class="title">root@Ιστορία: ~ — Terminal</div>
+      <div style="width:36px"></div> <!-- κανει center το "root@kali: ~ — Terminal" -->
+    </div>
+
+   <div class="term-body">
+		<nav id="leftsidebar">
+			<p class="prompt">root@Ιστορία:</p>
+			<img src="../media/full/kali3.png" alt="sidebarlogo">
+		</nav>
+
+		<main class="terminal">
+				<Strong style="font-size:40px;" class="blinkingunder">Ιστορία της Κυβερνοασφάλειας</Strong>
+
+					<p>Η ιστορία της κυβερνοασφάλειας ξεκινά πολύ πριν το ευρύ κοινό συνδέεται στο διαδίκτυο. 
+					Από τα πρώτα ηλεκτρονικά υπολογιστικά συστήματα έως την ψηφιακή εποχή της πληροφορίας, η ανάγκη για προστασία των δεδομένων και των συστημάτων τους υπήρξε σταθερή 
+					αν και η αναγνώρισή της ως «κυβερνοασφάλεια» ήρθε αργότερα.</p>
+					
+					
+					
+					<p style="font-weight:bold; font-size:20px;"><span class="prompt">root@history:</span>~# cat cybersecurity_timeline.txt</p>
+
+					<article><h3>Τα πρώτα χρόνια: 1940s-1960s</h3>
+					Στη δεκαετία του 1940, με την ανάπτυξη των πρώτων γενικής- χρήσης ηλεκτρονικών υπολογιστών (όπως ο ENIAC το 1945), δημιουργήθηκαν υποδομές για επεξεργασία στρατιωτικών και κυβερνητικών δεδομένων. 
+					Η έννοια της αυτο-αναπαραγωγής προγραμμάτων είχε ήδη διατυπωθεί από τον John von Neumann το 1949, θέτοντας τις βάσεις για την κατανόηση ότι τα προγράμματα μπορούν να μεταδίδουν τη «ζημιά». 
+					
+					Στη δεκαετία του 1960 και ’70, το έργο του Donald Davies για το packet switching (1965) και η ανάπτυξη του ARPANET το 1969, έθεσαν τις βάσεις του σημερινού διαδικτύου,
+					όμως μαζί με τη συνδεσιμότητα ήρθε και η ανάγκη για ασφάλεια. </article>
+					
+					<article><h3>Η δεκαετία του 1970-1980: απο το θεωρητικό στο πρακτικό</h3>
+					Η δεκαετία του 1970 σηματοδότησε τη μετάβαση από τις θεωρητικές προβληματικές στην πραγματικότητα: 
+					το πρόγραμμα Creeper (1971) ήταν η πρώτη γνωστή αυτο-αντιγράφουσα εφαρμογή, και το πρόγραμμα Reaper έγινε το πρώτο «αντί-ιικό». 
+					Την ίδια περίοδο ανέκυψαν και τα πρώτα πρωτόκολλα κρυπτογράφησης, όπως η ανταλλαγή κλειδιών Diffie–Hellman key exchange το 1976 — θεμέλια για τη σύγχρονη κρυπτογραφία και ασφάλεια επικοινωνιών. </article>
+					
+					<article><h3>Η δεκαετία του 1980-1990: οι ιοί και η επέκταση του «χώρου»</h3>
+					Με την εξάπλωση των προσωπικών υπολογιστών και τη σύνδεση δικτύων, η ασφάλεια έγινε θέμα για το ευρύ κοινό. Η εμφάνιση του σκουλήκα Morris Worm το 1988 ήταν σημείο καμπής: 
+					κατέδειξε πόσο ευάλωτα ήταν τα διανεμημένα συστήματα. 	
+					Ταυτόχρονα, παρουσιάστηκαν τα πρώτα εμπορικά antivirus, και άρχισαν να διαμορφώνονται λύσεις όπως firewalls και IDS. </article>
+					<article><h3>Η δεκαετία του 1990: Η έλευση του Internet & των νέων απειλών</h3>
+					Με τη μαζική διάδοση του World Wide Web και τη βαθύτερη ψηφιοποίηση της κοινωνίας, οι απειλές άλλαξαν μορφή: εμφανίστηκαν phishing, online απάτες, επιθέσεις σε βάσεις δεδομένων. 
+					Οι επιχειρήσεις και οργανισμοί άρχισαν να αντιλαμβάνονται ότι η ασφάλεια είναι αναγκαιότητα, όχι προαιρετικό έξοδο.</article>
+					<article><h3>2000s και μετά: ψηφιοποίηση, κράτη και πολυπλοκότητα</h3>
+					Στη δεκαετία των 2000 και μετά, οι υποδομές συνδέθηκαν, οι “έξυπνες” συσκευές (IoT) έγιναν καθημερινότητα, και η κυβερνοασφάλεια έγινε πεδίο εθνικής σημασίας. 
+					Η εμφάνιση κακόβουλων λογισμικών όπως το Stuxnet το 2010 ήταν αποκαλυπτική: έδειξε πως ο κυβερνοχώρος μπορεί να στοχεύσει φυσικές υποδομές. 
+					Τον ίδιο αιώνα, τα προβλήματα δεν ήταν πλέον μόνο τεχνικά — το καθεστώς, οι νόμοι, η ηθική έπρεπε να προσαρμοστούν. </article>
+					<article><h3>Σήμερα: Τομέας, απειλές και η συνέχεια</h3>
+					Η κυβερνοασφάλεια πλέον είναι πολυσύνθετη: αντιμετωπίζει ransomware, κυβερνο-κατασκοπεία, παραβίαση προμηθειών, αλγόριθμους τεχνητής νοημοσύνης. 
+					Ο ρόλος της δεν περιορίζεται στο τεχνικό: είναι και νομικός, εκπαιδευτικός και κοινωνικός. Η ενίσχυση των διεθνών προτύπων, η κοινή προσπάθεια δημόσιου και ιδιωτικού τομέα, η πρόληψη — έγιναν προτεραιότητα.</article>
+		</main>
+				
+		<nav id="rightsidebar" class="buttons">
+			<p class="prompt">Πηγές:</p>
+			<ol>
+				<li class="topgap"><a title="Maryville University" target="_blank" href="https://online.maryville.edu/blog/history-of-cybersecurity">Maryville University Online</a></li>
+				<li class="topgap"><a title="CompTIA" target="_blank" href="https://www.futureoftech.org/cybersecurity/2-history-of-cybersecurity">CompTIA / Future of Tech</a></li>
+				<li class="topgap"><a title="Keepnet Labs" target="_blank" href="https://keepnetlabs.com/blog/cybersecurity-breaches-lessons-from-history">Keepnet Labs Blog</a></li>
+				<li class="topgap"><a title="KnowledgeHut" target="_blank" href="https://www.knowledgehut.com/blog/security/history-of-cyber-security">KnowledgeHut Blog</a></li>
+				<li class="topgap"><a title="Coro.net" target="_blank" href="https://www.coro.net/blog/history-of-cybersecurity-and-cyber-threats">Coro.net Blog</a></li>
+			
+			</ol>
+		</nav>
+	</div>
+	
+	<footer id="footer">
+      <div id="leftfooter">&copy; Πανεπιστήμιο Θεσσαλίας</div>
+      <div id="rightfooter">design: Danihl Safariadis</div>
+    </footer>
+	</div>
+	<script>
+		const canvas = document.getElementById("matrix");
+		const ctx = canvas.getContext("2d");
+
+		
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+
+		
+		const chars = "01";
+		const fontSize = 16;
+		const columns = canvas.width / fontSize;
+
+		
+		const drops = Array(Math.floor(columns)).fill(1);
+
+		function draw() {
+		ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; 
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	
+		ctx.fillStyle = "#0F0";
+		ctx.font = fontSize + "px monospace";
+
+		drops.forEach((y, i) => {
+			const text = chars.charAt(Math.floor(Math.random() * chars.length));
+			const x = i * fontSize;
+			ctx.fillText(text, x, y * fontSize);
+
+			if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+			drops[i]++;
+		});
+	}
+
+		setInterval(draw, 33);
+
+		window.addEventListener("resize", () => {
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+	});
+	</script>
+
+</body>
+</html>

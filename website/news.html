@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CyberSecurity Infosec</title>
+  <link rel="stylesheet" href="mystyles.css">
+</head>
+<body>
+	<canvas id="matrix"></canvas>
+	<div class="term-window" role="region" aria-label="Kali style terminal mock">
+	<!-- Top navigation bar -->
+	<nav class="menu-bar">
+		<ul>
+			<li><a href="index.html">Αρχική</a></li>
+			<li><a href="history.html">Ιστορία</a></li>
+			<li><a href="multimedia.html">Πολυμέσα</a></li>
+			<li><a href="news.html" class="selected">Νέα</a></li>
+			<li><a href="aboutme.html">Σχετικά Με Εμένα</a></li>
+		</ul>
+	</nav>
+	
+	<!-- Top bar -->
+    <div class="chrome">
+		<div class="dots" aria-hidden="true">
+			<div class="dot close"></div>
+			<div class="dot min"></div>
+			<div class="dot max"></div>
+		</div>
+		<div class="title">root@Νέα: ~ — Terminal</div>
+		<div style="width:36px"></div> <!-- κανει center το "root@kali: ~ — Terminal" -->
+    </div>
+	
+	<div class="term-body">
+		<nav id="leftsidebar">
+			<p class="prompt">root@Νέα:</p>
+			<img src="../media/full/kali3.png" alt="sidebarlogo">
+		</nav>
+
+		<main class="terminal" style="padding: 0 155px;">
+			<h2>Νέα Κυβερνοασφάλειας</h2>
+			<p>Παρακάτω παρουσιάζονται πρόσφατες απειλές και κακόβουλα λογισμικά που εντοπίστηκαν στο διαδίκτυο.</p>
+			<article>
+				<h3>🧬 Rhadamanthys Stealer v2.3</h3>
+				<p><em>Ημερομηνία:</em> 04/11/2025 | <em>Κατηγορία:</em> Malware / Stealer</p>
+				<p>
+					Το Rhadamanthys είναι κακόβουλο λογισμικό που στοχεύει δεδομένα χρηστών
+					και πορτοφόλια κρυπτονομισμάτων. Διαδίδεται μέσω ψεύτικων email και
+					κακόβουλων αρχείων εγκατάστασης.
+				</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Threat Level</th>
+							<th>Avoidability</th>
+							<th>Spread</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>9/10 ⚠️</td>
+							<td>6/10 🛡️</td>
+							<td>8/10 🌐</td>
+							</tr>
+					</tbody>
+				</table>
+			</article>
+
+		<article>
+			<h3>🐍 Snake Keylogger 2025 Variant</h3>
+			<p><em>Ημερομηνία:</em> 27/10/2025 | <em>Κατηγορία:</em> Keylogger / Spyware</p>
+			<p>
+				Η νέα παραλλαγή του Snake Keylogger εξαπλώνεται μέσω συνημμένων PDF email
+				και καταγράφει πληκτρολογήσεις για να αποσπάσει κωδικούς.
+			</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Threat Level</th>
+						<th>Avoidability</th>
+						<th>Spread</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>7/10 ⚠️</td>
+						<td>8/10 🛡️</td>
+						<td>6/10 🌐</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+		<article>
+			<h3>✈️ Airstalk</h3>
+			<p><em>Ημερομηνία:</em> 29/10/2025 | <em>Κατηγορία:</em> Advanced Persistent Threat (APT) / Spyware / Backdoor</p>
+			<p>
+				Το Airstalk κάνει κακή χρήση του AirWatch API για τη διαχείριση κινητών συσκευών (MDM), 
+				η οποία πλέον ονομάζεται Workspace ONE Unified Endpoint Management. 
+				Χρησιμοποιεί το API για να δημιουργήσει ένα μυστικό κανάλι εντολών και ελέγχου (C2),
+				κυρίως μέσω της λειτουργίας AirWatch για τη διαχείριση προσαρμοσμένων χαρακτηριστικών συσκευών και μεταφορτώσεων αρχείων.
+			</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Threat Level</th>
+						<th>Avoidability</th>
+						<th>Spread</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>8/10 ⚠️</td>
+						<td>4/10 🛡️</td>
+						<td>6/10 🌐</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+	</main>
+	</div>
+	
+	<footer id="footer">
+      <div id="leftfooter">&copy; Πανεπιστήμιο Θεσσαλίας</div>
+      <div id="rightfooter">design: Danihl Safariadis</div>
+    </footer>
+	</div>
+	<script>
+		const canvas = document.getElementById("matrix");
+		const ctx = canvas.getContext("2d");
+
+		
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+
+		
+		const chars = "01";
+		const fontSize = 16;
+		const columns = canvas.width / fontSize;
+
+		
+		const drops = Array(Math.floor(columns)).fill(1);
+
+		function draw() {
+		ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; 
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	
+		ctx.fillStyle = "#0F0";
+		ctx.font = fontSize + "px monospace";
+
+		drops.forEach((y, i) => {
+			const text = chars.charAt(Math.floor(Math.random() * chars.length));
+			const x = i * fontSize;
+			ctx.fillText(text, x, y * fontSize);
+
+			if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+			drops[i]++;
+		});
+	}
+
+		setInterval(draw, 33);
+
+		window.addEventListener("resize", () => {
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+	});
+	</script>
+
+</body>
+</html>
